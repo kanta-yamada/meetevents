@@ -17,6 +17,9 @@
             <%= link_to "Delete", event, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
           <% end %>
         </div>
+        <div>
+            <%= render 'meets/interest_button', event: event %>
+        </div>
       </div>
     </li>
   <% end %>

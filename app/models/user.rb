@@ -9,6 +9,8 @@ class User < ApplicationRecord
     has_many :events
     has_many :relationships
     has_many :followings, through: :relationships, source: :follow
+    has_many :meets
+    has_many :joinings, through: :meets, source: :event
     
     def follow(other_user)
         unless self == other_user
@@ -29,4 +31,16 @@ class User < ApplicationRecord
         Event.where(user_id: self.following_ids + [self.id])
     end
     
+    def interest(event)
+        self.meets.find_or_create_by(event_id: event.id)
+    end
+    
+    def uninterest(event)
+        meets = self.meets.find_by(event_id: event.id)
+        meets.destroy if meets
+    end
+    
+    def interesting?(event)
+        self.joinings.include?(event)
+    end
 end

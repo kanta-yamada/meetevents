@@ -31,6 +31,11 @@ class UsersController < ApplicationController
     @followings = @user.followings.page(params[:page])
   end
   
+  def joins
+    @user = User.find(params[:id])
+    @joinings = @user.joinings.page(params[:page])
+  end
+  
   private
   
   def user_params

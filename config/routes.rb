@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :new, :create] do
     member do
       get :followings
+      get :joins
     end
   end
   
-  resources :events, only: [:create, :destroy]
+  resources :events, only: [:create, :destroy] 
   resources :relationships, only: [:create, :destroy]
+  resources :meets, only: [:create, :destroy]
 end

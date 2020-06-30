@@ -16,6 +16,6 @@
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  </a></li>
       <li class="nav-item"><a href="<%= joins_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(joins_user_path(@user)) %>">JoinEvents</a></li>
     </ul>
-    <%= render 'events/events', events: @events %>
+    <%= render 'events/events', events:@joinings %>
   </div>
 </div>
