@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: meetevents_production
   username: meetevents
   password: <%= ENV['MEETEVENTS_DATABASE_PASSWORD'] %>

@@ -10,7 +10,7 @@ class User < ApplicationRecord
     has_many :relationships
     has_many :followings, through: :relationships, source: :follow
     has_many :meets
-    has_many :joinings, through: :meets, source: :event
+    has_many :joinings, through: :meets, source: :event, dependent: :destroy
     
     def follow(other_user)
         unless self == other_user
@@ -43,4 +43,5 @@ class User < ApplicationRecord
     def interesting?(event)
         self.joinings.include?(event)
     end
+    
 end
