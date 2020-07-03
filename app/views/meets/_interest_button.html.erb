@@ -1,11 +1,11 @@
   <% if current_user.interesting?(event) %>
     <%= form_with(model: current_user.meets.find_by(event_id: event.id), local: true, method: :delete) do |f| %>
       <%= hidden_field_tag :event_id, event.id %>
-      <%= f.submit 'キャンセル', class: 'btn btn-danger' %>
+      <%= f.submit 'Cancel', class: 'btn btn-danger' %>
     <% end %>
   <% else %>
     <%= form_with(model: current_user.meets.build, local: true) do |f| %>
       <%= hidden_field_tag :event_id, event.id %>
-      <%= f.submit '参加', class: 'btn btn-primary' %>
+      <%= f.submit 'Join', class: 'btn btn-primary' %>
     <% end %>
   <% end %>

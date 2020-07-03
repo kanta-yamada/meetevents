@@ -4,14 +4,14 @@ class MeetsController < ApplicationController
   def create
     event = Event.find(params[:event_id])
     current_user.interest(event)
-    flash[:sucess] = 'イベントへの参加が完了しました。'
+    flash[:sucess] = 'Sucess to join event'
     redirect_to '/'
   end
 
   def destroy
     event = Event.find(params[:event_id])
     current_user.uninterest(event)
-    flash[:sucess] = 'イベントをキャンセルしました。'
+    flash[:sucess] = 'Canceling event'
     redirect_to '/'
   end
 end

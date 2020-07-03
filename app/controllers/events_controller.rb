@@ -5,19 +5,19 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      flash[:success] = 'メッセージを投稿しました。'
+      flash[:success] = 'Sucess to post event'
       redirect_to root_url
     else
       @events = current_user.feed_events.order(id: :desc).page(params[:page])
-      flash.now[:danger] = 'メッセージの投稿に失敗しました。'
+      flash.now[:danger] = 'Fail to post event'
       render 'toppages/index'
     end
   end
 
   def destroy
     @event.destroy
-    flash[:success] = 'メッセージを削除しました。'
-    redirect_back(fallback_location: root_path)
+    flash[:success] = 'Event deleted'
+    redirect_to root_url
   end
   
   private
