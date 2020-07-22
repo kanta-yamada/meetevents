@@ -5,13 +5,13 @@
         <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group">
             <%= f.label :title, 'title' %>
-            <%= f.text_area :title, class: 'form-control', rows: 5 %>
+            <%= f.text_area :title, class: 'form-control', rows: 5 %> <br>
             <%= f.label :content, 'content' %>
-            <%= f.text_area :content, class: 'form-control', rows: 5 %>
+            <%= f.text_area :content, class: 'form-control', rows: 5 %> <br>
             <%= f.label :place, 'place' %>
-            <%= f.text_area :place, class: 'form-control', rows: 5 %>
+            <%= f.text_area :place, class: 'form-control', rows: 5 %> <br>
             <%= f.label :time, 'time' %>
-            <%= f.text_area :time, class: 'form-control', rows: 5 %>
+            <%= f.text_area :time, class: 'form-control', rows: 5 %> <br>
           </div>
           <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
       <% end %>

@@ -7,10 +7,10 @@
           <%= link_to event.user.name, user_path(event.user) %> <span class="text-muted">posted at <%= event.created_at %></span>
         </div>
         <div>
-          <p><%= event.title %></p>
-          <p><%= event.content %></p>
-          <p><%= event.place %></p>
-          <p><%= event.time %></p>
+          <p><%= sanitize event.title.gsub(/\r\n|\r|\n/, "<br>") %></p>
+          <p><%= sanitize event.content.gsub(/\r\n|\r|\n/, "<br>") %></p>
+          <p><%= sanitize event.place.gsub(/\r\n|\r|\n/, "<br>") %></p>
+          <p><%= sanitize event.time.gsub(/\r\n|\r|\n/, "<br>") %></p>
         </div>
         <div>
           <% if current_user == event.user %>
